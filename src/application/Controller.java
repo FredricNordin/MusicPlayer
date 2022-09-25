@@ -96,13 +96,13 @@ public class Controller implements Initializable{
 				mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
 				
 			}
-			
 		});
 	}
 	
 	public void playMedia() {
 		beginTimer();
 		changeSpeed(null);
+		mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
 		mediaPlayer.play();
 	}
 	
