@@ -215,7 +215,7 @@ public class Controller implements Initializable{
 			}
 		};
 		
-		timer.scheduleAtFixedRate(task, 1000, 1000);
+		timer.scheduleAtFixedRate(task, 0, 1000);
 	}
 
 	public void cancelTimer() {
