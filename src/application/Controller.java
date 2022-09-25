@@ -27,28 +27,21 @@ public class Controller implements Initializable{
 	
 	@FXML
 	private Pane pane;
-	
 	@FXML
 	private Label songLabel;
-	
 	@FXML
 	private Button playButton, pauseButton, resetButton, previousButton, nextButton;
-	
 	@FXML
 	private ComboBox<String> speedBox;
-	
 	@FXML
 	private Slider volumeSlider;
-	
 	@FXML
 	private ProgressBar songProgressBar;
 	
 	private Media media;
 	private MediaPlayer mediaPlayer;
-	
 	private File directory;
 	private File[] files;
-	
 	private ArrayList<File> songs;
 	
 	private int songNumber;
@@ -57,8 +50,8 @@ public class Controller implements Initializable{
 	private Timer timer;
 	private TimerTask task;
 	private boolean running;
-	
 
+	// Fill array with songs in "music" folder.
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		songs = new ArrayList<File>();
@@ -99,6 +92,7 @@ public class Controller implements Initializable{
 		});
 	}
 	
+	// When song starts playing.
 	public void playMedia() {
 		beginTimer();
 		changeSpeed(null);
@@ -106,22 +100,23 @@ public class Controller implements Initializable{
 		mediaPlayer.play();
 	}
 	
+	// When song is paused.
 	public void pauseMedia() {
 		cancelTimer();
 		mediaPlayer.pause();
 	}
 
+	// When reset btn is pressed.
 	public void resetMedia() {
 		songProgressBar.setProgress(0);
 		mediaPlayer.seek(Duration.seconds(0));
 	}
 
+	// Go back one song.
 	public void previousMedia() {
 	
 		if(songNumber > 0) {
-			
 			songNumber--;
-			
 			mediaPlayer.stop();
 			
 			if(running) {
@@ -136,7 +131,6 @@ public class Controller implements Initializable{
 			
 		} else {
 			songNumber = songs.size() -1;
-			
 			mediaPlayer.stop();
 			
 			if(running) {
@@ -151,12 +145,11 @@ public class Controller implements Initializable{
 		}
 	}
 
+	// Next song.
 	public void nextMedia() {
 	
 		if(songNumber < songs.size() -1) {
-			
 			songNumber++;
-			
 			mediaPlayer.stop();
 			
 			if(running) {
@@ -171,7 +164,6 @@ public class Controller implements Initializable{
 			
 		} else {
 			songNumber = 0;
-			
 			mediaPlayer.stop();
 			
 			if(running) {
@@ -186,24 +178,21 @@ public class Controller implements Initializable{
 		}
 	}
 
+	// Change song playback speeds.
 	public void changeSpeed(ActionEvent event) {
-		
 		if(speedBox.getValue() == null) {
 			mediaPlayer.setRate(1);
 		} else {
 			mediaPlayer.setRate(Integer.parseInt(speedBox.getValue()) * 0.01);
 		}
-	
 	}
 
+	// Timer for progressBar to display.
 	public void beginTimer() {
-	
 		timer = new Timer();
-		
 		task = new TimerTask() {
 			
 			public void run() {
-				
 				running = true;
 				double current = mediaPlayer.getCurrentTime().toSeconds();
 				double end = media.getDuration().toSeconds();
@@ -214,12 +203,11 @@ public class Controller implements Initializable{
 				}
 			}
 		};
-		
 		timer.scheduleAtFixedRate(task, 0, 1000);
 	}
 
+	// Pause when stopped.
 	public void cancelTimer() {
-	
 		running = false;
 		timer.cancel();
 	}
