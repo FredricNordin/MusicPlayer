@@ -98,7 +98,6 @@ public class Controller implements Initializable{
 			}
 			
 		});
-		
 	}
 	
 	public void playMedia() {
@@ -140,6 +139,10 @@ public class Controller implements Initializable{
 			
 			mediaPlayer.stop();
 			
+			if(running) {
+				cancelTimer();
+			}
+			
 			media = new Media(songs.get(songNumber).toURI().toString());
 			mediaPlayer = new MediaPlayer(media);
 			
@@ -156,6 +159,10 @@ public class Controller implements Initializable{
 			
 			mediaPlayer.stop();
 			
+			if(running) {
+				cancelTimer();
+			}
+			
 			media = new Media(songs.get(songNumber).toURI().toString());
 			mediaPlayer = new MediaPlayer(media);
 			
@@ -166,6 +173,10 @@ public class Controller implements Initializable{
 			songNumber = 0;
 			
 			mediaPlayer.stop();
+			
+			if(running) {
+				cancelTimer();
+			}
 			
 			media = new Media(songs.get(songNumber).toURI().toString());
 			mediaPlayer = new MediaPlayer(media);
