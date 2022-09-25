@@ -10,11 +10,6 @@
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: BLACK;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <Label fx:id="songLabel" alignment="CENTER" layoutY="30.0" prefHeight="17.0" prefWidth="400.0" text="Music Player" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
       <ProgressBar fx:id="songProgressBar" layoutX="12.0" layoutY="50.0" prefHeight="18.0" prefWidth="377.0" progress="0.0" />
       <Button fx:id="playButton" layoutX="153.0" layoutY="161.0" mnemonicParsing="false" onAction="#playMedia" prefHeight="25.0" prefWidth="47.0" text="Play" />
       <Button fx:id="pauseButton" layoutX="201.0" layoutY="161.0" mnemonicParsing="false" onAction="#pauseMedia" text="Pause" />
@@ -27,5 +22,11 @@
       <Button fx:id="nextButton" layoutX="262.0" layoutY="161.0" mnemonicParsing="false" onAction="#nextMedia" prefHeight="25.0" prefWidth="47.0" text="Next" />
       <ComboBox fx:id="speedBox" layoutX="126.0" layoutY="111.0" onAction="#changeSpeed" prefWidth="150.0" promptText="Speed" />
       <Slider fx:id="volumeSlider" layoutX="372.0" layoutY="78.0" max="100.0" orientation="VERTICAL" prefHeight="116.0" prefWidth="14.0" value="50.0" />
+      <Label fx:id="songLabel" alignment="CENTER" layoutY="49.0" prefHeight="17.0" prefWidth="400.0" text="Song">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="377.0" text="Fredric's favourite Runescape songs!" textFill="WHITE" />
    </children>
 </AnchorPane>
