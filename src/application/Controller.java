@@ -74,6 +74,7 @@ public class Controller implements Initializable{
 		
 		songLabel.setText(songs.get(songNumber).getName());
 		mediaPlayer.play(); // Play first song when app is opened.
+		beginTimer(); // Start timer/progress bar.
 		
 		
 		for(int i = 0; i < speeds.length; i++) {
