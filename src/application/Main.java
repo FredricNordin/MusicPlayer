@@ -19,7 +19,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			// Create a scene.
-			primaryStage.setTitle("Fredde's Music Player 1.0");
+			primaryStage.setTitle("Fredric's Music Player 1.0");
 			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();

@@ -73,6 +73,7 @@ public class Controller implements Initializable{
 		mediaPlayer = new MediaPlayer(media);
 		
 		songLabel.setText(songs.get(songNumber).getName());
+		mediaPlayer.play(); // Play first song when app is opened.
 		
 		
 		for(int i = 0; i < speeds.length; i++) {
